@@ -1,12 +1,175 @@
 {
   "version": "1.0.0",
-  "last_updated": "2025-11-10T00:00:00Z",
-  "products": [],
+  "last_updated": "2025-11-10T19:46:45.087088Z",
+  "products": [
+    {
+      "id": "0c6cd2224eafb860",
+      "supplier": "elmar",
+      "supplier_product_id": "ELM001",
+      "name": "Quinoa em Grãos Orgânica",
+      "brand": "Elmar",
+      "category": "Grãos",
+      "weight": 500.0,
+      "unit": "g",
+      "price": {
+        "base": 24.9,
+        "margin": 30.0,
+        "shipping": 15.0,
+        "final": 47.37
+      },
+      "stock": {
+        "available": true,
+        "quantity": 1
+      },
+      "metadata": {
+        "extraction_date": "2025-11-10T19:46:45.069263Z",
+        "source_url": "https://elmar.com.br/catalogo.xml",
+        "hash": "90e299f3b9f53ae9c51c0d702701e3e92e86969bb87a0052dc6d05b8c099421f"
+      },
+      "created_at": "2025-11-10T19:46:45.069269Z",
+      "updated_at": "2025-11-10T19:46:45.069271Z"
+    },
+    {
+      "id": "e02d71966fd3b442",
+      "supplier": "elmar",
+      "supplier_product_id": "ELM002",
+      "name": "Chia Preta Premium",
+      "brand": "Elmar",
+      "category": "Sementes",
+      "weight": 250.0,
+      "unit": "g",
+      "price": {
+        "base": 19.9,
+        "margin": 30.0,
+        "shipping": 15.0,
+        "final": 40.87
+      },
+      "stock": {
+        "available": true,
+        "quantity": 1
+      },
+      "metadata": {
+        "extraction_date": "2025-11-10T19:46:45.072171Z",
+        "source_url": "https://elmar.com.br/catalogo.xml",
+        "hash": "9ac501d6584a62cd7ae5cc578b861f005e2127103a626ac432f12f75f5ef73a1"
+      },
+      "created_at": "2025-11-10T19:46:45.072180Z",
+      "updated_at": "2025-11-10T19:46:45.072184Z"
+    },
+    {
+      "id": "118e69c5e22bb7b0",
+      "supplier": "elmar",
+      "supplier_product_id": "ELM003",
+      "name": "Linhaça Dourada Moída",
+      "brand": "Elmar",
+      "category": "Sementes",
+      "weight": 200.0,
+      "unit": "g",
+      "price": {
+        "base": 14.5,
+        "margin": 30.0,
+        "shipping": 15.0,
+        "final": 33.85
+      },
+      "stock": {
+        "available": true,
+        "quantity": 1
+      },
+      "metadata": {
+        "extraction_date": "2025-11-10T19:46:45.074531Z",
+        "source_url": "https://elmar.com.br/catalogo.xml",
+        "hash": "3ee8152f8014f4e38b87c767607ff720b7f0951fe50b2a43f6d22a70682df04d"
+      },
+      "created_at": "2025-11-10T19:46:45.074536Z",
+      "updated_at": "2025-11-10T19:46:45.074538Z"
+    },
+    {
+      "id": "32e25f07eb982c45",
+      "supplier": "elmar",
+      "supplier_product_id": "ELM004",
+      "name": "Arroz Integral Orgânico",
+      "brand": "Elmar",
+      "category": "Grãos",
+      "weight": 1.0,
+      "unit": "kg",
+      "price": {
+        "base": 16.9,
+        "margin": 30.0,
+        "shipping": 15.0,
+        "final": 36.97
+      },
+      "stock": {
+        "available": true,
+        "quantity": 1
+      },
+      "metadata": {
+        "extraction_date": "2025-11-10T19:46:45.076622Z",
+        "source_url": "https://elmar.com.br/catalogo.xml",
+        "hash": "974af62b3c950ad454dec9a5bedaac067b6ada274e9e5cc2d603f7d239439930"
+      },
+      "created_at": "2025-11-10T19:46:45.076628Z",
+      "updated_at": "2025-11-10T19:46:45.076630Z"
+    },
+    {
+      "id": "356392e7c969f8f6",
+      "supplier": "elmar",
+      "supplier_product_id": "ELM005",
+      "name": "Pasta de Amendoim Integral",
+      "brand": "Elmar",
+      "category": "Pastas",
+      "weight": 500.0,
+      "unit": "g",
+      "price": {
+        "base": 26.9,
+        "margin": 30.0,
+        "shipping": 15.0,
+        "final": 49.97
+      },
+      "stock": {
+        "available": true,
+        "quantity": 1
+      },
+      "metadata": {
+        "extraction_date": "2025-11-10T19:46:45.078876Z",
+        "source_url": "https://elmar.com.br/catalogo.xml",
+        "hash": "ab10888e020ab1c8a2dad1e088e04947991698fdab6e946cc210cf3124597d1b"
+      },
+      "created_at": "2025-11-10T19:46:45.078882Z",
+      "updated_at": "2025-11-10T19:46:45.078884Z"
+    },
+    {
+      "id": "2b84aa0013af2eba",
+      "supplier": "elmar",
+      "supplier_product_id": "ELM006",
+      "name": "Açúcar de Coco Natural",
+      "brand": "Elmar",
+      "category": "Açúcares e Adoçantes",
+      "weight": 250.0,
+      "unit": "g",
+      "price": {
+        "base": 21.9,
+        "margin": 30.0,
+        "shipping": 15.0,
+        "final": 43.47
+      },
+      "stock": {
+        "available": true,
+        "quantity": 1
+      },
+      "metadata": {
+        "extraction_date": "2025-11-10T19:46:45.081025Z",
+        "source_url": "https://elmar.com.br/catalogo.xml",
+        "hash": "4af841480ebf9e49e731c8878de37ce510263d363bd02704efe44966e367b94b"
+      },
+      "created_at": "2025-11-10T19:46:45.081030Z",
+      "updated_at": "2025-11-10T19:46:45.081033Z"
+    }
+  ],
   "metadata": {
-    "total_products": 0,
+    "total_products": 6,
     "suppliers": {
       "gramore": 0,
-      "elmar": 0,
+      "elmar": 6,
       "rmoura": 0
     }
   }
