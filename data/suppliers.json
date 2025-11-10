@@ -1,0 +1,47 @@
+[
+  {
+    "id": "gramore",
+    "name": "Gramore Produtos Naturais",
+    "data_type": "html",
+    "url": "https://gramore.com.br/precos",
+    "consent_obtained": true,
+    "consent_date": "2025-11-01",
+    "extraction_config": {
+      "rate_limit": 10,
+      "user_agent": "MadeInNatural-Bot/1.0",
+      "respect_robots_txt": true
+    },
+    "active": true,
+    "created_at": "2025-11-10T00:00:00Z"
+  },
+  {
+    "id": "elmar",
+    "name": "Elmar Distribuidora",
+    "data_type": "xml",
+    "url": "https://elmar.com.br/catalogo.xml",
+    "consent_obtained": true,
+    "consent_date": "2025-11-01",
+    "extraction_config": {
+      "rate_limit": 20,
+      "user_agent": "MadeInNatural-Bot/1.0",
+      "respect_robots_txt": true
+    },
+    "active": true,
+    "created_at": "2025-11-10T00:00:00Z"
+  },
+  {
+    "id": "rmoura",
+    "name": "RMoura Alimentos Naturais",
+    "data_type": "html",
+    "url": "https://rmoura.com.br/produtos",
+    "consent_obtained": true,
+    "consent_date": "2025-11-01",
+    "extraction_config": {
+      "rate_limit": 15,
+      "user_agent": "MadeInNatural-Bot/1.0",
+      "respect_robots_txt": true
+    },
+    "active": true,
+    "created_at": "2025-11-10T00:00:00Z"
+  }
+]

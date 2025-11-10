@@ -1,0 +1,103 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Produto Normalizado",
+  "description": "Schema unificado para produtos de todos os fornecedores",
+  "type": "object",
+  "required": ["id", "name", "supplier", "price", "created_at"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "ID único do produto (hash baseado em supplier + supplier_product_id)"
+    },
+    "supplier": {
+      "type": "string",
+      "enum": ["gramore", "elmar", "rmoura"],
+      "description": "Identificador do fornecedor"
+    },
+    "supplier_product_id": {
+      "type": "string",
+      "description": "ID original do produto no sistema do fornecedor"
+    },
+    "name": {
+      "type": "string",
+      "description": "Nome do produto"
+    },
+    "brand": {
+      "type": "string",
+      "description": "Marca do produto"
+    },
+    "category": {
+      "type": "string",
+      "description": "Categoria do produto"
+    },
+    "weight": {
+      "type": "number",
+      "description": "Peso/quantidade do produto"
+    },
+    "unit": {
+      "type": "string",
+      "enum": ["kg", "g", "l", "ml", "un"],
+      "description": "Unidade de medida"
+    },
+    "price": {
+      "type": "object",
+      "required": ["base", "final"],
+      "properties": {
+        "base": {
+          "type": "number",
+          "description": "Preço base do fornecedor"
+        },
+        "margin": {
+          "type": "number",
+          "description": "Margem aplicada (%)"
+        },
+        "shipping": {
+          "type": "number",
+          "description": "Custo de frete"
+        },
+        "final": {
+          "type": "number",
+          "description": "Preço final para B2C"
+        }
+      }
+    },
+    "stock": {
+      "type": "object",
+      "properties": {
+        "available": {
+          "type": "boolean",
+          "description": "Disponibilidade em estoque"
+        },
+        "quantity": {
+          "type": "integer",
+          "description": "Quantidade disponível"
+        }
+      }
+    },
+    "metadata": {
+      "type": "object",
+      "properties": {
+        "extraction_date": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "source_url": {
+          "type": "string",
+          "format": "uri"
+        },
+        "hash": {
+          "type": "string",
+          "description": "Hash SHA-256 dos dados brutos para auditoria"
+        }
+      }
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "updated_at": {
+      "type": "string",
+      "format": "date-time"
+    }
+  }
+}

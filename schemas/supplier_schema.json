@@ -1,0 +1,79 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Fornecedor",
+  "description": "Registro de fornecedor com metadados completos",
+  "type": "object",
+  "required": ["id", "name", "data_type", "url", "consent_obtained"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "enum": ["gramore", "elmar", "rmoura"],
+      "description": "Identificador único do fornecedor"
+    },
+    "name": {
+      "type": "string",
+      "description": "Nome completo do fornecedor"
+    },
+    "data_type": {
+      "type": "string",
+      "enum": ["html", "xml", "csv", "api"],
+      "description": "Tipo de fonte de dados"
+    },
+    "url": {
+      "type": "string",
+      "format": "uri",
+      "description": "URL da fonte de dados"
+    },
+    "consent_obtained": {
+      "type": "boolean",
+      "description": "Consentimento para extração de dados obtido"
+    },
+    "consent_date": {
+      "type": "string",
+      "format": "date",
+      "description": "Data de obtenção do consentimento"
+    },
+    "contact": {
+      "type": "object",
+      "properties": {
+        "email": {
+          "type": "string",
+          "format": "email"
+        },
+        "phone": {
+          "type": "string"
+        }
+      }
+    },
+    "extraction_config": {
+      "type": "object",
+      "description": "Configurações específicas de extração",
+      "properties": {
+        "rate_limit": {
+          "type": "integer",
+          "description": "Requisições por minuto permitidas"
+        },
+        "user_agent": {
+          "type": "string"
+        },
+        "respect_robots_txt": {
+          "type": "boolean",
+          "default": true
+        }
+      }
+    },
+    "active": {
+      "type": "boolean",
+      "default": true,
+      "description": "Fornecedor ativo no sistema"
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "updated_at": {
+      "type": "string",
+      "format": "date-time"
+    }
+  }
+}

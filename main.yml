@@ -1,0 +1,250 @@
+project:
+  id: made-in-natural-full
+  title: "Made in Natural – Hub Modular e Orquestrado de Produtos Naturais"
+  description: >
+    Plataforma intermediária conectando fornecedores B2B de produtos naturais ao varejo B2C,
+    com pipeline modular ETL, unificação de catálogo, interface B2C e governança completa.
+  owner: data-governance
+  reviewed_at: 2025-11-10
+  next_review: 2026-05-10
+  priority: high
+  goals:
+    - "Centralizar catálogos heterogêneos em um repositório unificado"
+    - "Oferecer experiência de compra padronizada B2C"
+    - "Garantir rastreabilidade e compliance legal"
+
+requirements:
+  - id: req-1
+    description: "Registrar fornecedores com metadados completos (URL, tipo de dado, consentimento)"
+    priority: high
+    acceptance_criteria:
+      - "Todos fornecedores possuem metadados completos"
+      - "Consentimento registrado se necessário"
+
+  - id: req-2
+    description: "Extrair todos produtos dos fornecedores, independentemente do formato"
+    priority: high
+    acceptance_criteria:
+      - "Produtos extraídos incluem: nome, marca, peso, unidade, preço, categoria"
+      - "Rastreabilidade garantida por logs e hash"
+
+  - id: req-3
+    description: "Normalizar dados em schema único e aplicar regras comerciais"
+    priority: high
+    acceptance_criteria:
+      - "Schema validado JSON"
+      - "Aplicação correta de margem, frete e estoque"
+
+  - id: req-4
+    description: "Comparar produtos de múltiplos fornecedores e selecionar fornecedor preferencial"
+    priority: medium
+    acceptance_criteria:
+      - "Comparação baseada em regras comerciais definidas"
+      - "Escolha de fornecedor documentada"
+
+  - id: req-5
+    description: "Disponibilizar catálogo central para frontend B2C"
+    priority: high
+    acceptance_criteria:
+      - "Busca e comparação de produtos funcionam"
+      - "Carrinho único agrega produtos de múltiplos fornecedores"
+
+  - id: req-6
+    description: "Registrar logs e hashes para auditabilidade e compliance"
+    priority: high
+    acceptance_criteria:
+      - "Logs imutáveis disponíveis"
+      - "Auditoria trimestral concluída"
+
+tasks:
+
+  - id: supplier-gramore
+    title: "ETL Modular – Fornecedor Gramore"
+    objective: "Capturar e normalizar produtos Gramore"
+    agents:
+      - Extractor
+      - Transformer
+      - Validator
+      - Compliance
+    subtasks:
+      - id: gramore-extraction
+        title: "Extração de Dados"
+        description: "Navegar na página de preços e capturar produtos"
+        actions:
+          - "Scraping da página HTML"
+          - "Identificação de blocos de produto com NER"
+          - "Conversão em JSON padronizado"
+        validations:
+          - "Todos produtos possuem logs e hash"
+        tests:
+          - "Teste de scraping ético e limite de requisições"
+        artifacts:
+          - gramore_etl_log.jsonl
+          - gramore_raw_products.json
+
+      - id: gramore-transformation
+        title: "Transformação e Normalização"
+        description: "Aplicar schema único e regras comerciais"
+        actions:
+          - "Padronizar campos: nome, marca, peso, unidade, preço, categoria"
+          - "Aplicar cálculos de preço final e margem"
+          - "Validar integridade e consistência"
+        validations:
+          - "Schema JSON compatível com catálogo central"
+          - "Todos produtos normalizados"
+        tests:
+          - "Teste de integridade do schema"
+        artifacts:
+          - gramore_products_normalized.json
+
+      - id: gramore-unification
+        title: "Integração no Catálogo Central"
+        description: "Enviar produtos normalizados para repositório central"
+        actions:
+          - "Associar produtos à origem"
+          - "Indexar produtos para busca e comparação"
+        validations:
+          - "Produtos corretamente indexados"
+        tests:
+          - "Teste de integração com catálogo central"
+        artifacts:
+          - catalog_repository.json
+
+  - id: supplier-elmar
+    title: "ETL Modular – Fornecedor Elmar"
+    objective: "Capturar e normalizar produtos Elmar"
+    agents:
+      - Extractor
+      - Transformer
+      - Validator
+      - Compliance
+    subtasks:
+      - id: elmar-extraction
+        title: "Extração de Dados"
+        actions:
+          - "Extrair XML e planilhas"
+          - "Identificação de blocos de produto"
+          - "Registro de logs e hash"
+        validations:
+          - "Todos produtos possuem logs"
+        tests:
+          - "Teste de extração"
+        artifacts:
+          - elmar_raw_products.json
+
+      - id: elmar-transformation
+        title: "Transformação e Normalização"
+        actions:
+          - "Padronizar schema"
+          - "Aplicar regras de preço e estoque"
+        validations:
+          - "Schema validado"
+        tests:
+          - "Teste de normalização"
+        artifacts:
+          - elmar_products_normalized.json
+
+      - id: elmar-unification
+        title: "Integração no Catálogo Central"
+        actions:
+          - "Indexar produtos no catálogo central"
+        validations:
+          - "Produtos corretamente indexados"
+        artifacts:
+          - catalog_repository.json
+
+  - id: supplier-rmoura
+    title: "ETL Modular – Fornecedor RMoura"
+    agents:
+      - Extractor
+      - Transformer
+      - Validator
+      - Compliance
+    subtasks:
+      - id: rmoura-extraction
+        actions:
+          - "Scraping HTML da listagem de produtos"
+          - "Identificação de elementos de produto"
+          - "Registrar logs e hash"
+        validations:
+          - "Todos produtos possuem logs"
+        tests:
+          - "Teste de scraping e extração"
+        artifacts:
+          - rmoura_raw_products.json
+
+      - id: rmoura-transformation
+        actions:
+          - "Padronizar schema"
+          - "Aplicar regras comerciais"
+        validations:
+          - "Schema validado"
+        tests:
+          - "Teste de normalização"
+        artifacts:
+          - rmoura_products_normalized.json
+
+      - id: rmoura-unification
+        actions:
+          - "Enviar produtos para catálogo central"
+          - "Indexar produtos"
+        validations:
+          - "Produtos corretamente indexados"
+        artifacts:
+          - catalog_repository.json
+
+  - id: catalog-unification
+    title: "Unificação do Catálogo Central"
+    agents:
+      - Transformer
+      - Validator
+    actions:
+      - "Consolidar produtos normalizados de todos fornecedores"
+      - "Aplicar regras de estoque e pricing"
+      - "Disponibilizar para frontend B2C"
+    validations:
+      - "Busca e comparação funcional"
+      - "Produtos corretamente associados aos fornecedores"
+    tests:
+      - "Teste de fluxo completo de compra"
+      - "Teste de atualização do catálogo"
+    artifacts:
+      - catalog_repository.json
+      - retail_interface_spec.md
+
+  - id: retail-interface
+    title: "Interface B2C"
+    agents:
+      - Transformer
+    actions:
+      - "Implementar busca e comparação de produtos"
+      - "Integrar carrinho único"
+      - "Atualizar catálogo automaticamente"
+    validations:
+      - "Busca retorna produtos corretos"
+      - "Carrinho agrega produtos de múltiplos fornecedores"
+    tests:
+      - "Teste de fluxo de compra completo"
+      - "Teste de atualização automática do catálogo"
+    artifacts:
+      - retail_interface_spec.md
+
+  - id: monitoring-compliance
+    title: "Monitoramento, Compliance e Governança"
+    agents:
+      - Compliance
+    actions:
+      - "Registrar logs imutáveis de todas operações ETL"
+      - "Auditar origem e consistência dos produtos"
+      - "Validar políticas de retenção e exclusão de dados"
+      - "Verificar regras de scraping e privacidade"
+    validations:
+      - "Logs completos e rastreáveis"
+      - "Auditoria concluída"
+      - "Sem violação de compliance"
+    tests:
+      - "Teste de replay de logs"
+      - "Teste de rastreabilidade até fornecedor"
+    artifacts:
+      - compliance_review_report.pdf
+      - audit_log.jsonl
