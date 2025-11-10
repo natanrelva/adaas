@@ -1,0 +1,43 @@
+# Database Configuration for Add'as Platform
+# Supports multiple environments with environment variable overrides
+
+development:
+  host: localhost
+  port: 5432
+  database: addas_dev
+  user: addas_user
+  password: ${DB_PASSWORD:-dev_password}
+  pool_size: 5
+  max_overflow: 15
+  pool_timeout: 30
+  pool_recycle: 300
+  echo: true  # Log SQL queries in development
+
+test:
+  host: localhost
+  port: 5432
+  database: addas_test
+  user: addas_test_user
+  password: ${DB_PASSWORD:-test_password}
+  pool_size: 2
+  max_overflow: 5
+  pool_timeout: 10
+  pool_recycle: 300
+  echo: false
+
+production:
+  host: ${DB_HOST}
+  port: ${DB_PORT:-5432}
+  database: ${DB_NAME}
+  user: ${DB_USER}
+  password: ${DB_PASSWORD}
+  pool_size: 10
+  max_overflow: 20
+  pool_timeout: 30
+  pool_recycle: 300
+  pool_pre_ping: true  # Verify connections before using
+  echo: false
+  ssl_mode: require
+  connect_args:
+    sslmode: require
+    connect_timeout: 10
